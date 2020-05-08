@@ -1,12 +1,6 @@
-import React from 'react';
+import { AppBar, Fade, Link, Toolbar, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import {
-  AppBar,
-  Fade,
-  Link,
-  Toolbar,
-  Typography
-} from '@material-ui/core';
+import React from 'react';
 
 const useStyles = makeStyles({
   root: {
