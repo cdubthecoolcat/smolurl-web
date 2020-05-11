@@ -3,12 +3,10 @@ import React from 'react';
 
 interface AliasInputProps {
   text: string;
-  setText: Function;
   hasError: boolean;
-  setHasError: Function;
   visible: boolean;
-  setVisible: Function;
   errorText: string;
+  setAlias: Function;
 }
 
 function AliasInput(props: AliasInputProps) {
@@ -26,7 +24,7 @@ function AliasInput(props: AliasInputProps) {
             variant='outlined'
             value={props.text}
             helperText={props.errorText}
-            onChange={(e) => props.setText(e.target.value)}
+            onChange={(e) => props.setAlias({ text: e.target.value })}
             style={{
               marginTop: '12px',
               marginBottom: '12px'
@@ -35,7 +33,7 @@ function AliasInput(props: AliasInputProps) {
         </Collapse>
       </div>
       <FormControlLabel
-        control={<Checkbox value={props.visible} onChange={() => props.setVisible(!props.visible)} />}
+        control={<Checkbox value={props.visible} onChange={() => props.setAlias({ visible: !props.visible })} />}
         label="Use Custom Alias"
       />
     </>

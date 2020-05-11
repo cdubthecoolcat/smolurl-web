@@ -1,11 +1,11 @@
 import React from 'react';
-import UrlForm from './form/UrlForm';
+import URLForm from './form/URLForm';
 import HomeAppBar from './HomeAppBar';
-import ShortenedUrl from './ShortenedUrl';
+import ShortenedURL from './ShortenedURL';
 import { Grid } from '@material-ui/core';
 
 function App() {
-  const [newUrlText, setNewUrlText] = React.useState<string>('');
+  const [newURLText, setNewURLText] = React.useState<string>('');
 
   return (
     <div>
@@ -17,12 +17,12 @@ function App() {
         alignItems="center"
         justify="center"
         style={{ minHeight: '75vh' }}>
-        <ShortenedUrl
-          text={newUrlText}
-          visible={newUrlText.length > 0}
+        <ShortenedURL
+          text={newURLText}
+          visible={newURLText.length > 0}
         />
-        <UrlForm
-          setNewUrlText={setNewUrlText}
+        <URLForm
+          setNewURLText={setNewURLText}
         />
       </Grid>
     </div>

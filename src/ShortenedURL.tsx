@@ -1,12 +1,12 @@
 import { Fade, Link, Typography } from '@material-ui/core';
 import React from 'react';
 
-interface ShortenedUrlProps {
+interface ShortenedURLProps {
   text: string;
   visible: boolean;
 };
 
-function ShortenedUrl(props: ShortenedUrlProps) {
+function ShortenedURL(props: ShortenedURLProps) {
   return (
     <Fade
       in={props.visible}
@@ -29,4 +29,4 @@ function ShortenedUrl(props: ShortenedUrlProps) {
   );
 }
 
-export default ShortenedUrl;
+export default ShortenedURL;

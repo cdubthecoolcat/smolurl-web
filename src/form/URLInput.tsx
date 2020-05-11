@@ -1,25 +1,24 @@
 import { TextField } from '@material-ui/core';
 import React from 'react';
 
-interface UrlInputProps {
+interface URLInputProps {
   text: string;
-  setText: Function;
   hasError: boolean;
-  setHasError: Function;
   errorText: string;
+  setURL: Function
 };
 
-function UrlInput(props: UrlInputProps) {
+function URLInput(props: URLInputProps) {
   return (
     <TextField
       error={props.hasError}
-      label='Url'
+      label='URL'
       variant='outlined'
       value={props.text}
       helperText={props.errorText}
-      onChange={(e) => props.setText(e.target.value)}
+      onChange={(e) => props.setURL({ text: e.target.value })}
     />
   );
 }
 
-export default UrlInput;
+export default URLInput;
