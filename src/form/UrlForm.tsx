@@ -1,31 +1,31 @@
 import { Button, Fade } from '@material-ui/core';
 import React, { FormEvent } from 'react';
 import AliasInput from './AliasInput';
-import { submitURL } from './http';
-import URLInput from './URLInput';
+import { submitUrl } from './http';
+import UrlInput from './UrlInput';
 
 enum urlInputError {
-  INVALID_URL,
+  INVALID_Url,
   BLOCKED_DOMAIN,
   INVALID_INPUT
 };
 
-interface URLFormProps {
-  setNewURLText: Function;
+interface UrlFormProps {
+  setNewUrlText: Function;
 };
 
-interface URLState {
+interface UrlState {
   text: string;
   hasError: boolean;
   errorMessage: string;
 };
 
-interface AliasState extends URLState {
+interface AliasState extends UrlState {
   visible: boolean;
 };
 
-function URLForm(props: URLFormProps) {
-  const [url, setURL] = React.useState<URLState>({
+function UrlForm(props: UrlFormProps) {
+  const [url, setUrl] = React.useState<UrlState>({
     text: '',
     hasError: false,
     errorMessage: ''
@@ -38,8 +38,8 @@ function URLForm(props: URLFormProps) {
     visible: false
   });
 
-  const updateURL = (updated: any) => {
-    setURL({ ...url, ...updated });
+  const updateUrl = (updated: any) => {
+    setUrl({ ...url, ...updated });
   };
 
   const updateAlias = (updated: any) => {
@@ -49,7 +49,7 @@ function URLForm(props: URLFormProps) {
   const updateErrors = (data: any) => {
     if (data.error) {
       if (urlInputError[data.error.type] !== undefined) {
-        updateURL({
+        updateUrl({
           hasError: true,
           errorMessage: data.error.message
         });
@@ -60,7 +60,7 @@ function URLForm(props: URLFormProps) {
         });
       }
     } else {
-      updateURL({
+      updateUrl({
         hasError: false,
         errorMessage: ''
       });
@@ -68,13 +68,13 @@ function URLForm(props: URLFormProps) {
         hasError: false,
         errorMessage: ''
       });
-      props.setNewURLText(data.short);
+      props.setNewUrlText(data.short);
     }
   };
 
   const formSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    submitURL({
+    submitUrl({
       short: alias.text,
       target: url.text
     }).then(updateErrors)
@@ -86,11 +86,11 @@ function URLForm(props: URLFormProps) {
       timeout={2000}>
       <form onSubmit={formSubmit}>
         <div>
-          <URLInput
+          <UrlInput
             text={url.text}
             hasError={url.hasError}
             errorText={url.errorMessage}
-            setURL={updateURL}
+            setUrl={updateUrl}
           />
           <Button
             type="submit"
@@ -118,4 +118,4 @@ function URLForm(props: URLFormProps) {
   );
 }
 
-export default URLForm;
+export default UrlForm;

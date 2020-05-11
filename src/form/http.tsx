@@ -1,9 +1,9 @@
-interface URLPostData {
+interface UrlPostData {
   short: string;
   target: string;
 };
 
-export const submitURL = async (url: URLPostData) => {
+export const submitUrl = async (url: UrlPostData) => {
   const response = await fetch('/api/urls', {
     method: 'POST',
     headers: {
