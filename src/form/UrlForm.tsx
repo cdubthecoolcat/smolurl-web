@@ -68,14 +68,14 @@ function UrlForm(props: UrlFormProps) {
         hasError: false,
         errorMessage: ''
       });
-      props.setNewUrlText(data.short);
+      props.setNewUrlText(data.alias);
     }
   };
 
   const formSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     submitUrl({
-      short: alias.text,
+      alias: alias.text,
       target: url.text
     }).then(updateErrors)
   }

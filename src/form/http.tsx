@@ -1,5 +1,5 @@
 interface UrlPostData {
-  short: string;
+  alias: string;
   target: string;
 };
 
