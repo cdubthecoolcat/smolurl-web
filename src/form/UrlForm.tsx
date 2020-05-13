@@ -75,7 +75,7 @@ function UrlForm(props: UrlFormProps) {
   const formSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     submitUrl({
-      alias: alias.text,
+      alias: alias.visible ? alias.text : '',
       target: url.text
     }).then(updateErrors)
   }
