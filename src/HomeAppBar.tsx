@@ -3,6 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Brightness4, BrightnessHigh } from '@material-ui/icons';
 import React from 'react';
 
+interface HomeAppBarProps {
+  isDark: boolean;
+  toggle: () => void;
+};
+
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
@@ -12,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-function HomeAppBar(props: any) {
+function HomeAppBar(props: HomeAppBarProps) {
   const classes = useStyles();
 
   return (
