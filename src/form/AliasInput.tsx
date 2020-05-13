@@ -10,6 +10,12 @@ interface AliasInputProps {
 }
 
 function AliasInput(props: AliasInputProps) {
+  const checkBox = (
+    <Checkbox
+      value={props.visible}
+      onChange={() => props.setAlias({ visible: !props.visible })} /> 
+  );
+
   return (
     <>
       <div>
@@ -19,6 +25,7 @@ function AliasInput(props: AliasInputProps) {
           mountOnEnter
           unmountOnExit>
           <TextField
+            fullWidth
             error={props.hasError}
             label='Alias'
             variant='outlined'
@@ -26,14 +33,14 @@ function AliasInput(props: AliasInputProps) {
             helperText={props.errorText}
             onChange={(e) => props.setAlias({ text: e.target.value })}
             style={{
-              marginTop: '12px',
-              marginBottom: '12px'
+              marginTop: '6px',
+              marginBottom: '6px'
             }}
           />
         </Collapse>
       </div>
       <FormControlLabel
-        control={<Checkbox value={props.visible} onChange={() => props.setAlias({ visible: !props.visible })} />}
+        control={checkBox}
         label="Use Custom Alias"
       />
     </>

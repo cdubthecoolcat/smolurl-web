@@ -75,7 +75,7 @@ function UrlForm(props: UrlFormProps) {
   const formSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     submitUrl({
-      alias: alias.text,
+      alias: alias.visible ? alias.text : '',
       target: url.text
     }).then(updateErrors)
   }
@@ -85,27 +85,12 @@ function UrlForm(props: UrlFormProps) {
       in={true}
       timeout={2000}>
       <form onSubmit={formSubmit}>
-        <div>
-          <UrlInput
-            text={url.text}
-            hasError={url.hasError}
-            errorText={url.errorMessage}
-            setUrl={updateUrl}
-          />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            disableElevation
-            style={{
-              marginLeft: '12px',
-              marginRight: '12px',
-              paddingTop: '16px',
-              paddingBottom: '16px'
-            }}>
-            Shorten
-          </Button>
-        </div>
+        <UrlInput
+          text={url.text}
+          hasError={url.hasError}
+          errorText={url.errorMessage}
+          setUrl={updateUrl}
+        />
         <AliasInput
           text={alias.text}
           hasError={alias.hasError}
@@ -113,6 +98,17 @@ function UrlForm(props: UrlFormProps) {
           errorText={alias.errorMessage}
           setAlias={updateAlias}
         />
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          disableElevation
+          style={{
+            marginTop: '6px',
+            marginBottom: '6px'
+          }}>
+          Shorten
+        </Button>
       </form>
     </Fade>
   );

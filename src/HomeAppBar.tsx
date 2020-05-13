@@ -1,6 +1,12 @@
-import { AppBar, Fade, Link, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Fade, Link, Switch, Toolbar, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { Brightness4, BrightnessHigh } from '@material-ui/icons';
 import React from 'react';
+
+interface HomeAppBarProps {
+  isDark: boolean;
+  toggle: () => void;
+};
 
 const useStyles = makeStyles({
   root: {
@@ -11,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function HomeAppBar() {
+function HomeAppBar(props: HomeAppBarProps) {
   const classes = useStyles();
 
   return (
@@ -24,9 +30,16 @@ export default function HomeAppBar() {
                 <b>smolurl</b>
               </Link>
             </Typography>
+            {!props.isDark ? <Brightness4 /> : <BrightnessHigh />}
+            <Switch
+              checked={props.isDark}
+              onChange={props.toggle}
+            />
           </Toolbar>
         </AppBar>
       </div>
     </Fade>
   );
 }
+
+export default HomeAppBar;

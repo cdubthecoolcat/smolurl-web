@@ -10,7 +10,9 @@ function ShortenedUrl(props: ShortenedUrlProps) {
   return (
     <Fade
       in={props.visible}
-      timeout={1000}>
+      timeout={1000}
+      mountOnEnter
+      unmountOnExit>
       <Typography
         variant="h4"
         color="primary"

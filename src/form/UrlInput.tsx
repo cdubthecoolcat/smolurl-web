@@ -11,12 +11,17 @@ interface UrlInputProps {
 function UrlInput(props: UrlInputProps) {
   return (
     <TextField
+      fullWidth
       error={props.hasError}
       label='Url'
       variant='outlined'
       value={props.text}
       helperText={props.errorText}
       onChange={(e) => props.setUrl({ text: e.target.value })}
+      style={{
+        marginTop: '6px',
+        marginBottom: '6px'
+      }}
     />
   );
 }
