@@ -30,8 +30,11 @@ function App() {
 
   const theme = createMuiTheme({
     palette: {
+      background: {
+        default: darkMode ? '#212121' : '#ffffff'
+      },
       primary: {
-        main: darkMode ? '#ffffff' : '#000000'
+        main: darkMode ? '#ffffff' : '#212121'
       },
       secondary: {
         main: darkMode ? blue[400] : pink[400]
@@ -49,9 +52,9 @@ function App() {
       />
       <Grid
         container
-        direction="column"
-        alignItems="center"
-        justify="center"
+        direction='column'
+        alignItems='center'
+        justify='center'
         style={{ minHeight: '75vh' }}>
         <ShortenedUrl
           text={newUrlText}

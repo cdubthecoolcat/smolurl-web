@@ -41,7 +41,7 @@ function AliasInput(props: AliasInputProps) {
       </div>
       <FormControlLabel
         control={checkBox}
-        label="Use Custom Alias"
+        label='Use Custom Alias'
       />
     </>
   );

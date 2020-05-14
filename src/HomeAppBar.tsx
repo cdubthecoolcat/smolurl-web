@@ -22,22 +22,20 @@ function HomeAppBar(props: HomeAppBarProps) {
 
   return (
     <Fade in={true} timeout={2000}>
-      <div className={classes.root}>
-        <AppBar color="inherit" elevation={0} position="static">
-          <Toolbar>
-            <Typography color="inherit" className={classes.title} variant="h5">
-              <Link underline="none" href="/">
-                <b>smolurl</b>
-              </Link>
-            </Typography>
-            {!props.isDark ? <Brightness4 /> : <BrightnessHigh />}
-            <Switch
-              checked={props.isDark}
-              onChange={props.toggle}
-            />
-          </Toolbar>
-        </AppBar>
-      </div>
+      <AppBar color='transparent' className={classes.root} elevation={0} position='static'>
+        <Toolbar>
+          <Typography color='inherit' className={classes.title} variant='h5'>
+            <Link underline='none' href='/'>
+              <b>smolurl</b>
+            </Link>
+          </Typography>
+          {!props.isDark ? <Brightness4 /> : <BrightnessHigh />}
+          <Switch
+            checked={props.isDark}
+            onChange={props.toggle}
+          />
+        </Toolbar>
+      </AppBar>
     </Fade>
   );
 }

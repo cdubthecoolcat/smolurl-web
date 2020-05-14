@@ -99,9 +99,9 @@ function UrlForm(props: UrlFormProps) {
           setAlias={updateAlias}
         />
         <Button
-          type="submit"
-          variant="contained"
-          color="primary"
+          type='submit'
+          variant='contained'
+          color='primary'
           disableElevation
           style={{
             marginTop: '6px',
